@@ -67,10 +67,11 @@ if ~exist(outdir, 'dir')
 end
 %% Take QFSM files, pull out tracks, do subpixel localization, and sort 
 % tracks by subcellular location:
-% Use this function to generate allresults structure from 
-% allresults = generateTrackFiles(imgnums, datadir, trackdirsuff, xyres, ...
-%     spaceunits, frSep, timeunits, n2vdir, driftTabledir, maskdir, ...
-%     outdir, trackOutfileSuffix);
+% **Note: this allresults structure is provided for the full dataset, so
+% this step can be omitted when analyzing data from the full dataset
+allresults = generateTrackFiles(imgnums, datadir, trackdirsuff, xyres, ...
+    spaceunits, frSep, timeunits, n2vdir, driftTabledir, maskdir, ...
+    outdir, trackOutfileSuffix);
 
 %% Take tracks and calculate displacement on varying timescales:
 stepresults = generateDisplacementsVaryingTimescales(allresults, Ntimes); 
