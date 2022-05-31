@@ -1,26 +1,20 @@
 # actin-tracking
 Extraction of accurate cytoskeletal actin velocity distributions from noisy measurements
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Included in this repository: %%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+### Included in this repository:
 1. README.txt 
 2. MainScript.m 	- the main script to fit the data in sample_data to the analytical jump model ( https://doi.org/10.1101/2020.08.13.247304 )
 3. sample_data 		- a folder of sample data, containing 3 cells
 4. matlab_functions 	- a folder of supporting scripts needed to run MainScript.m
 5. MainScript_Weibull.m	- an alternative to MainScript.m which fits the data to a Weibull distribution
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-System requirements: %%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+### System requirements: 
 Matlab with the following toolboxes:
 1. optimization
 2. statistics and machine learning
 This code was run successfully on both Matlab 2015a and 2020b on Windows 10.  
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-To run: %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+### To run:
 1. Download all files. 
 2. Add matlab_functions directory to the matlab path.
 3. Run MainScript.m from the directory in which MainScript is stored. (Otherwise input and output directories in the script, lines 4 - 17 would need to be modified appropriately.)
@@ -32,28 +26,24 @@ For the first run, you may wish to modify certain run parameters to run more qui
 
 As written, this script ran in about 20 minutes on a desktop computer.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Outputs: %%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+### Outputs:
 The results in the paper rely on a much larger dataset (n = 32 cells across multiple experimental replicates). While the results from this small number of cells may roughly match those in the paper, it is expected that results will have greater errors from the smaller sample size. 
 
 Output files are stored in matlab_output if run as provided. 
 
-.mat files created:
+##### .mat files created:
 1. [date]_[imgnum]_tracks_n2v.mat - one for each image analyzed, contains structure named "results," with each line corresponding to 1 tracked speckle from that image, as well as variables and parameters used for calculations
 2. [date]_all_tracks_tracks_n2v.mat - combines all of the tracking results from the above files into one, contains structure named "allresults" which contains all tracks from all images analyzed
 3. [date]_all_displacements.mat - saved workspace variables after calculating displacements over varying timescales, includes structure "stepresults" which contains these displacements
 4. [date]_analytical_jump_model_fit_params.mat - includes variables [pop]paramsMLE (containing best fit parameters) and [pop]cisMLE (containing the 95% confidence intervals on those parameters)
 
-.fig files created:
+##### .fig files created:
 1. [date]_allpops_measured_displacements.fig - showing the measured displacement distributions, pooled across all populations and all cells
 2. [date]_[pop]_fit_displacements.fig - one for each subcellular population (4 total), showing the measured displacement distribution, pooled across all cells, and the best fit to that population by the analytical jump model
 3. [date]_[pop]_velocity_distributions.fig - one for each subcellular population (4 total), showing the best fit velocity distributions from the analytical jump model
 4. [date]_analytical_jump_model_fit_params.fig - showing the best fit parameters for the four populations, as a function of timescale
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Expanding to fit other models: %%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+### Expanding to fit other models:
 This code fits the provided data to the analytical 1-D jump model (without reversals). Other models in the text were tested by modifying the "Fig1DAnalyticalJumpModel," "AnalyticalJumpModelWithNoise," and "AnalyticalJumpModel" codes. 
 
 As an example, "FitWbl" and "WblWithNoise" are included. These are called in a script called "MainScript_Weibull.m". The primary modifications to fit this model are:
