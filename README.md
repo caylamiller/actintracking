@@ -4,7 +4,7 @@ Extraction of accurate cytoskeletal actin velocity distributions from noisy meas
 ### Included in this repository:
 1. README
 2. MainScript.m 	- the main script to fit the data in sample_data to the analytical jump model ( https://doi.org/10.1101/2020.08.13.247304 )
-3. sample_data 		- a folder of sample data, containing 3 cells
+3. sample_data.zip 	- a folder of sample data, containing 3 cells, can be downloaded from the release page (https://github.com/caylamiller/actintracking/releases)
 4. matlab_functions 	- a folder of supporting scripts needed to run MainScript.m
 5. MainScript_Weibull.m	- an alternative to MainScript.m which fits the data to a Weibull distribution
 
@@ -15,9 +15,10 @@ Matlab with the following toolboxes:
 This code was run successfully on both Matlab 2015a and 2020b on Windows 10.  
 
 ### To run:
-1. Download all files. 
+1. Download all files.
 2. Add matlab_functions directory to the matlab path.
-3. Run MainScript.m from the directory in which MainScript is stored. (Otherwise input and output directories in the script, lines 4 - 17 would need to be modified appropriately.)
+3. Unzip sample_data.zip. Move sample_data folder to the directory in which MainScript.m is stored.
+4. Run MainScript.m from the directory in which MainScript is stored. (Otherwise input and output directories in the script, lines 4 - 17 would need to be modified appropriately.)
 
 For the first run, you may wish to modify certain run parameters to run more quickly (at the cost of loss of information):
 1. imgnums (line 20) = the image numbers (as names in sample_data) that will be analyzed. You may wish to run only one image (e.g. 18) during the first run to ensure all toolboxes are properly installed and all scripts run. 
