@@ -2,7 +2,7 @@
 Extraction of accurate cytoskeletal actin velocity distributions from noisy measurements
 
 ### Included in this repository:
-1. README.txt 
+1. README
 2. MainScript.m 	- the main script to fit the data in sample_data to the analytical jump model ( https://doi.org/10.1101/2020.08.13.247304 )
 3. sample_data 		- a folder of sample data, containing 3 cells
 4. matlab_functions 	- a folder of supporting scripts needed to run MainScript.m
